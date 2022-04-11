@@ -1,0 +1,31 @@
+//the loanApp database Schema
+
+var loanAppSchema = new Schema({
+    Name: { type: String, match: /[a-zA-Z ]/ },
+    Occupation: {type: String, match: /[a-zA-Z ]/ },
+    Number: {type: number, min: 11, index: true },
+    Email: {type: Email, match: /[a-zA-Z ]/ },
+    LoanAmount: {type: String, match: /[a-zA-Z ]/ },
+    loanReason: { type: String, match: /[a-zA-Z ]/ },
+    loanCollateral: { type: String, match: /[a-zA-Z ]/ },
+    loanRepayment: { type: Date, default: Date.now },
+});
+
+
+// Select the database to use
+use('loanApp');
+
+// Insert a few documents in the collection
+db.loanApp.insertMany([
+    { Name: "John Doe" },
+    { Occupation: "Banker" },
+    { Number: "07088128550" },
+    { Email: "johndoe@gmail.com" },
+    { LoanAmount: "$5000" },
+    { loanReason: "Business Funding" },
+    { loanCollateral: "Toyota Car" },
+    { loanRepayment: "11-12-2022" }
+    ]);
+
+// Return all the fields in the collection
+db.loanApp.find();
